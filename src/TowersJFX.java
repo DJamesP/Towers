@@ -2,7 +2,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -28,7 +27,7 @@ import java.util.List;
 
 import static java.lang.Math.random;
 
-public class Main extends Application {
+public class TowersJFX extends Application {
 
     private int rodCount = 3;
     private int ringCount = 5;
@@ -108,7 +107,7 @@ public class Main extends Application {
             else {
                 rod.setRingCount(0);
                 rod.setTopRingWidth(1e100d);
-            };
+            }
         }
 
         for ( Node rod : rods.getChildren()) {
@@ -366,6 +365,10 @@ public class Main extends Application {
             };
 
     public void winAnimation(Stage aGivenStage) {
+
+        //Credit where credit is due - the win animation code was adapted from a JavaFX animation tutorial on
+        //Oracle's documentation site:  http://docs.oracle.com/javafx/2/get_started/animation.htm
+
         Group root = new Group();
         Scene scene = new Scene(root, 800, 600, Color.BLACK);
         aGivenStage.setScene(scene);
